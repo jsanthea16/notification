@@ -1,0 +1,160 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: linear-gradient(to bottom, #112441, #0b304c);
+    color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Notification Container */
+.notification-container {
+    width: 380px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notification-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Notification Bell */
+.notification-bell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0056b3;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.notification-bell:hover {
+    background: #004494;
+}
+
+.bell-icon {
+    font-size: 24px;
+}
+
+.unread-count {
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Notifications */
+.notifications {
+    margin-top: 20px;
+}
+
+.notifications h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.notifications ul {
+    list-style: none;
+    padding: 0;
+}
+
+.notifications li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.notifications li:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+/* Read and Unread Styles */
+.notifications li.unread {
+    font-weight: 600;
+    color: #333;
+}
+
+.notifications li.read {
+    background: #f1f3f5;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Read Status */
+.read-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.read-status span {
+    color: #007bff;
+    font-size: 18px;
+}
+
+/* Input Field */
+.notification-input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.notification-input:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+/* Buttons */
+.action-button {
+    background: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background 0.3s ease;
+}
+
+.action-button:hover {
+    background: #004494;
+}
+
+.read-status {
+    font-size: 14px;
+    color: #28a745; /* Green for seen status */
+    font-weight: bold;
+    margin-left: 10px;
+}
