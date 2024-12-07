@@ -1,7 +1,7 @@
 const notifications = JSON.parse(localStorage.getItem('notifications')) || [
-    { id: 1, text: "Election Day is November 8, 2023", read: false, timestamp: new Date().toLocaleString() },
-    { id: 2, text: "Voter registration deadline is October 7, 2023", read: false, timestamp: new Date().toLocaleString() },
-    { id: 3, text: "Early voting starts on October 23, 2023", read: false, timestamp: new Date().toLocaleString() },
+    { id: 1, text: "Election Day is August 8, 2025", read: false, timestamp: new Date().toLocaleString() },
+    { id: 2, text: "Voter registration deadline is July 7, 2025", read: false, timestamp: new Date().toLocaleString() },
+    { id: 3, text: "Early voting starts on July 23, 2025", read: false, timestamp: new Date().toLocaleString() },
 ];
 
 const notificationList = document.getElementById('notificationList');
@@ -21,25 +21,35 @@ function renderNotifications() {
                 <strong>${notification.text}</strong>
                 <small style="display: block; font-size: 0.8rem; color: #666;">${notification.timestamp}</small>
             </div>
-            ${notification.read ? '<span class="read-status">✔ Seen</span>' : ''}
+            <button class="mark-read-btn" onclick="markAsRead(${notification.id})"></button>
         `;
-
-        if (!notification.read) {
-            li.onclick = () => markAsRead(notification.id); // Make the whole item clickable
-            unreadCountValue++;
-        }
-
         notificationList.appendChild(li);
+        if (!notification.read) unreadCountValue++;
     });
 
     unreadCount.textContent = unreadCountValue;
     localStorage.setItem('notifications', JSON.stringify(notifications));
 }
 
-// Mark Notification as Read
+// Add Notification
+document.getElementById('addNotificationBtn').onclick = () => {
+    const text = prompt('Enter a new notification:');
+    if (text) {
+        notifications.push({ id: Date.now(), text, read: false, timestamp: new Date().toLocaleString() });
+        renderNotifications();
+    }
+};
+
+// Clear Notifications
+document.getElementById('clearNotificationsBtn').onclick = () => {
+    notifications.length = 0;
+    renderNotifications();
+};
+
+// Mark as Read
 function markAsRead(id) {
     const notification = notifications.find(n => n.id === id);
-    if (notification && !notification.read) {
+    if (notification) {
         notification.read = true;
         renderNotifications();
     }
